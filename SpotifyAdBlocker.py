@@ -43,7 +43,7 @@ while True:
     for w in windows:
         winList.append(w.window_text())
     sessions = AudioUtilities.GetAllSessions()
-    if "Advertisement" in winList or "Spotify" in winList:
+    if "Advertisement" in winList or "Spotify" in winList or "Spotify Free" in winList or "Click to Participate!" in winList:
         for session in sessions:
             volume = session._ctl.QueryInterface(ISimpleAudioVolume)
             if session.Process and session.Process.name() == "Spotify.exe":
@@ -53,5 +53,8 @@ while True:
             volume = session._ctl.QueryInterface(ISimpleAudioVolume)
             if session.Process and session.Process.name() == "Spotify.exe":
                 volume.SetMute(0, None)
+
+
+
     time.sleep(rate)
 
